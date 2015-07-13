@@ -17,5 +17,7 @@ then
 	exit 1
 fi
 
+chmod 777 Objects/new_fic.txt
+rm Objects/new_fic.txt
 rm Objects/res_client
 

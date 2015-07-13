@@ -6,7 +6,7 @@ export IMP_PATH
 
 ./Tests/fonctionnels/tests/start_system.sh
 
-echo "ciao" > toPrint
+echo "ciao" > Objects/toPrint
 ./Objects/mpr -Z francino Objects/toPrint Objects/tubeClient &> Objects/res_client
 
 cat Objects/res_client | grep "Usage" &> /dev/null

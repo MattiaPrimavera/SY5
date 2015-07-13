@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IMP_PATH="tubeServer"
+IMP_PATH="tubeServeur"
 export IMP_PATH
 
 ./Tests/fonctionnels/tests/start_system.sh #starting printing system 

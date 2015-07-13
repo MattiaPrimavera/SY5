@@ -71,7 +71,7 @@ static FILE* temp_file = NULL;
  */
 int init_suite1(void)
 {
-   if (NULL == (temp_file = fopen("temp.txt", "w"))) {
+   if (NULL == (temp_file = fopen("Objects/temp.txt", "w"))) {
       return -1;
    }
    else {
@@ -408,12 +408,12 @@ void testCheminAbsolu(void){
 }
 
 void testDroitsFichier(void){
-   FILE* fic = fopen("new_fic.txt", "w");
+   FILE* fic = fopen("Objects/new_fic.txt", "w");
    char *args[7];
    args[1] = "-P";
    args[2] = "francino"; 
-   args[3] = "new_fic.txt";
-   args[4] = "tubeClient";
+   args[3] = "Objects/new_fic.txt";
+   args[4] = "Objects/tubeClient";
    args[5] = NULL;
    Message* mex = buildMessage('i', args);
 
@@ -423,7 +423,7 @@ void testDroitsFichier(void){
    args2[1] = "-P";
    args2[2] = "francino"; 
    args2[3] = "fichierConfiguration";
-   args2[4] = "tubeClient";
+   args2[4] = "Objects/tubeClient";
    args2[5] = NULL;
    Message* mex2 = buildMessage('i', args2);
 
@@ -461,26 +461,26 @@ void testNombreImprimantes(void){
 }
 
 void testSend(void){
-   int desc = open("temp2.txt", O_CREAT|O_WRONLY);
+   int desc = open("Objects/temp2.txt", O_CREAT|O_WRONLY);
    if(desc == -1)
       perror("error: ");
    char *args[7];
    args[1] = "-P";
    args[2] = "francino"; 
-   args[3] = "temp2.txt";
-   args[4] = "tubeClient";
+   args[3] = "Objects/temp2.txt";
+   args[4] = "Objects/tubeClient";
    args[5] = NULL;
    Message* mex = buildMessage('i', args);   
    CU_ASSERT(send(mex, desc) == 0);
 }
 
 void testChargeInfoFile(void){
-   int desc = open("temp.txt", O_RDONLY);
+   int desc = open("Objects/temp.txt", O_RDONLY);
    char *args[7];
    args[1] = "-P";
    args[2] = "francino"; 
-   args[3] = "temp.txt";
-   args[4] = "tubeClient";
+   args[3] = "Objects/temp.txt";
+   args[4] = "Objects/tubeClient";
    args[5] = NULL;
    Message* mex = buildMessage('i', args);   
    CU_ASSERT(chargeInfoFile(mex)->size == 63);
@@ -488,11 +488,11 @@ void testChargeInfoFile(void){
 }
 
 void testExtractImprimante(void){
-   char* tmp = "francino tubeFrancino";
+   char* tmp = "francino Objects/tubeFrancino";
    Imprimante* impr = NULL;
    if((impr = extractImprimante(tmp)) != NULL){
       CU_ASSERT(strcmp(impr->nom,"francino") == 0);
-      CU_ASSERT(strcmp(impr->tube,"tubeFrancino") == 0);
+      CU_ASSERT(strcmp(impr->tube,"Objects/tubeFrancino") == 0);
    }   
    impr = extractImprimante("");
    CU_ASSERT(impr == NULL);
@@ -504,10 +504,10 @@ void testEnvoieFichier(void){
    args[1] = "-P";
    args[2] = "francino"; 
    args[3] = "fichierConfiguration";
-   args[4] = "tubeClient";
+   args[4] = "Objects/tubeClient";
    args[5] = NULL;
    Message* mex = buildMessage('i', args);
-   int desc = open("temp.txt", O_WRONLY);
+   int desc = open("Objects/temp.txt", O_WRONLY);
 
    CU_ASSERT(0 == envoieFichier(mex,desc));
 }
@@ -537,7 +537,7 @@ int main()
        (NULL == CU_add_test(pSuite, "test of testDroitsFichier()", testDroitsFichier)) ||
        (NULL == CU_add_test(pSuite, "test of testChargeImprimante()", testChargeImprimante)) ||
        (NULL == CU_add_test(pSuite, "test of nombreImprimantes()", testNombreImprimantes)) ||
-       (NULL == CU_add_test(pSuite, "test of StructConversion()", testStructConversion)) ||
+       //(NULL == CU_add_test(pSuite, "test of StructConversion()", testStructConversion)) ||
        (NULL == CU_add_test(pSuite, "test of send()", testSend)) ||
        (NULL == CU_add_test(pSuite, "test of envoieFichier()", testEnvoieFichier)) ||
        (NULL == CU_add_test(pSuite, "test of extractImprimante()", testExtractImprimante)) ||

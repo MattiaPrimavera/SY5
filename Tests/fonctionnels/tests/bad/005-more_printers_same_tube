@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IMP_PATH="Objects/tubeServer"
+IMP_PATH="Objects/tubeServeur"
 export IMP_PATH
 
 echo francino tubeFrancino \r mattia tubeFrancino \r nando tubeNando \r > config_file 
@@ -13,4 +13,4 @@ if [ "$res_grep" -eq 2 ]; then
 fi
 
 
-rm Objects/config_file
+#rm Objects/config_file

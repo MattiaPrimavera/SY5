@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #initial system configuration
-IMP_PATH="tubeServer"
+IMP_PATH="tubeServeur"
 export IMP_PATH
 
 
