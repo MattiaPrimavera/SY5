@@ -1,0 +1,16 @@
+#!/bin/bash
+
+IMP_PATH="Objects/tubeServer"
+export IMP_PATH
+
+echo francino tubeFrancino \r mattia tubeFrancino \r nando tubeNando \r > config_file 
+
+./Objects/init_simulateurs -c config_file
+res_grep=$(ls Objects | grep tube | wc -l)
+
+if [ "$res_grep" -eq 2 ]; then
+	exit 1;
+fi
+
+
+rm Objects/config_file
