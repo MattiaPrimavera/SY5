@@ -1,15 +1,31 @@
 # SY5 - PROJET SYSTEMES
+
 Un simulateur d'un système d'impressions
 
+## Compilation
 
-Compilation: commande make
+    make
 
+## Pour l'execution des programmes
 
-Pour l'execution des programmes : 
+    ./print_demon -t tubeServeur -c fichierConfiguration
 
-./print_demon -t tubeServeur -c fichierConfiguration
-./init_simulateurs -c fichierConfiguration
-./mpr -P nomImprimante fichier tubeClient (pour la requete simple d'impression)
-./mpr -P nomImprimante fichier tubeClient -A idImpression (pour annullation impression)
-./mpr -P nomImprimante fichier tubeClient -N nombre (pour envoyer N impression du fichier "fichier")
-./mpr -P nomImprimante fichier tubeClient -M listeFiciher (imprime chaque fichier specifie' dans listeFichier)
+Pour la requête simple d'impression :
+
+    ./init_simulateurs -c fichierConfiguration
+
+Pour la requête simple d'impression :
+
+    ./mpr -P nomImprimante fichier tubeClient
+
+Pour annulation impression :
+
+    ./mpr -P nomImprimante fichier tubeClient -A idImpression
+
+Pour envoyer N impression du fichier "fichier" :
+
+    ./mpr -P nomImprimante fichier tubeClient -N nombre
+
+Imprime chaque fichier specifié dans listeFichiers :
+
+    ./mpr -P nomImprimante fichier tubeClient -M listeFichiers
