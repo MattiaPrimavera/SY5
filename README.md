@@ -8,18 +8,18 @@ A Simulation of a printers System.
 
 ## To Execute
 
-To start running the printers simulators you need to execute the following command, which will read inside the file `printers_list` in the project directory, where each line is of the format `printer_name printer_tube\n` 
+To start running the printers simulators you need to change directory to `Objects`, the one containing the executable files, than execute the following command, which will read inside the file `printers_list` in the project directory, where each line is of the format `printer_name printer_tube\n` 
 
 	./init_simulateurs -c printers_list
 
 The last command will execute as many printers as is the number of lines in the configuration file.
 To start the Server you need to specify through which **pipe** it will wait for incoming requests and how to communicate with printers (-c option):
 
-    ./print_demon -t server_tube -c printers_list
+	./print_demon -t server_tube -c printers_list
 
 To send a simple printing request, execute the client with the "-P" option:
 
-    ./mpr -P printer_name file_to_print client_tube
+	./mpr -P printer_name file_to_print client_tube
 
 To cancel a printing requests:
 
@@ -49,3 +49,9 @@ Functional and Unit Tests have been written to verify if the system functionnali
 	sudo ./test.sh
 
 The script will launch both functional and unity tests. The first ones are obtained by executing a series of **.sh** scripts contained in `Tests/fonctionnels/bad` and `Tests/fonctionnels/good`. This way the number of functional tests can be increased just by adding the new test script in the right directory, the system will automatically consider the new test inserted. Unit Tests use **CUnit library**, so that if you want to add tests, you need to modify `Tests/unitaires/test_cunit.c` file.
+
+## Cleaning
+
+To Clean your project directory:
+
+	make cleanall
