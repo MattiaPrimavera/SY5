@@ -3,6 +3,7 @@ OBJDIR := Objects
 
 make:
 	mkdir -p $(OBJDIR)
+	cp fichierConfiguration Objects/
 	make -f makefile -C $(SOURCES) 
 
 clean:

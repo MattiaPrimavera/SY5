@@ -157,10 +157,8 @@ int main(int argc, char** argv){
 					int i, bool2 = FALSE;
 					for(i=0;i<nombreImprimante;i++){
 						if(strcmp(listeImprimantes[i]->nom, message->imprimante) == 0){
-							//printf("%s\n",listeImprimantes[i]->nom);
 							add(listeImprimantes[i]->listeMessages, message);
 							bool2 = TRUE;
-							printf("giro %d\n",i);
 							break;
 						}
 					}
@@ -177,10 +175,6 @@ int main(int argc, char** argv){
 					printf("UID = %d; GID = %d; ID = %d; FIC = \"%s\"\n", message->uid, message->gid, message->id_impression, message->ref_abs);
 
 					memset(buffer, '\0', 200);	
-					//for(i=0;i<nombreImprimante;i++){
-					//	printf("size(%d) -> %d) ",listeImprimantes[i]->listeMessages->size ,i+1);
-					//	printList(listeImprimantes[i]->listeMessages);
-					//}
 
 					break;
 				case 'a':
@@ -201,10 +195,6 @@ int main(int argc, char** argv){
 						send(message, desc_client);
 					}
 
-					//for(i=0;i<nombreImprimante;i++){
-					//	printf("size(%d) -> %d) ",listeImprimantes[i]->listeMessages->size,i+1);	
-					//	printList(listeImprimantes[i]->listeMessages);
-					//}
 					break;	
 			}
 		}

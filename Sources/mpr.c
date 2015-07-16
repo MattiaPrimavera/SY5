@@ -28,15 +28,14 @@ int main(int argc, char** argv){
 	}
 
 	if(argc == 7 && strcmp(argv[5], "-N") == 0){
-		printf("siamo nell'opzione N");
 		int nombre = atoi(argv[6]);
-		printf("%d --> nombre\n", nombre);
+		printf("%d Printing request sent\n", nombre);
 		pid_t pid;
 
 		int i; char *args[7];
 		args[0] = "./mpr";
-		printf("Demarrage Imprimantes en cours...\n");
 		for(i=0;i<nombre;i++){
+			sleep(3);
 			switch(pid = fork()){
 				case -1:
 					perror("Erreur Creation Processus"); exit(2);
@@ -103,12 +102,12 @@ int main(int argc, char** argv){
 
 
 	//les droits d'acces sur les tubes seront rw pour tous
-	mode_t mode = S_IRUSR | S_IRGRP | S_IROTH | S_IWUSR | S_IWGRP | S_IWOTH;
+//	mode_t mode = S_IRUSR | S_IRGRP | S_IROTH | S_IWUSR | S_IWGRP | S_IWOTH;
 
 	//Creation tube client pour recevoir reponse serveur
-	if(mkfifo(argv[4], mode) == -1){
-		perror("error : (tubeClient) ");
-	}
+//	if(mkfifo(argv[4], mode) == -1){
+//		perror("error : (tubeClient) ");
+//	}
 
 	char* variable = getenv("IMP_PATH");
 	desc_requete = open(variable, O_WRONLY);
@@ -120,7 +119,6 @@ int main(int argc, char** argv){
 	//construction message
 	message = buildMessage('i', argv);
 	if(argc == 7 && strcmp(argv[5], "-A") == 0){
-		printf("opzione a inserita");
 		message->type = 'a';
 		message->id_impression = atoi(argv[6]);
 	}
@@ -148,12 +146,15 @@ int main(int argc, char** argv){
 		switch(message->id_impression){
 			case -2:
 				printf("error: imprimante demandee' n'existe pas ...\n ");
+				return -2;
 				break;
 			case -1: 
 				printf("error: pas de droits sur le fichier demande'\n");
+				return -1;
 				break;
 			default: 
 				printMex(message);
+				exit(0);
 				break;
 		}	
 
