@@ -8,11 +8,13 @@ A Simulation of a printers System.
 
 ## To Execute
 
-To start running the printers simulators you need to execute the following command, which will read inside the file "printers_list" in the project directory, where each line is of the format **printer_name printer_tube\n**. 
+To start running the printers simulators you need to execute the following command, which will read inside the file **printers_list** in the project directory, where each line is of the format
+
+	printer_name printer_tube\n 
 
 	./init_simulateurs -c printers_list
 
-This command will execute as many printers as is the number of lines in the configuration file.
+The last command will execute as many printers as is the number of lines in the configuration file.
 To start the Server you need to specify through which **pipe** it will wait for incoming requests and how to communicate with printers (-c option):
 
     ./print_demon -t server_tube -c printers_list
@@ -44,8 +46,8 @@ The Server-Client and Server-Printers communication takes place through **pipes*
 
 ## Tests 
 
-Functional and Unit Tests have been written to verify if the system functionalities correctly work. You can easily start the tests with the following command:
+Functional and Unit Tests have been written to verify if the system functionnalities correctly work. You can easily start the tests with the following command:
 
 	sudo ./test.sh
 
-The script will launch both functional and unity tests. The first ones are obtained by executing a series of **.sh** scripts contained in **Tests/fonctionnels/bad** and **Tests/fonctionnels/good**. This way the number of functional tests can be increased just by adding a script file in the right directory, the system will automatically consider the new test inserted. Unit Tests use **CUnit library**, so that if you want to add tests, you need to modify **Tests/unitaires/test_cunit.c** file.
+The script will launch both functional and unity tests. The first ones are obtained by executing a series of **.sh** scripts contained in **Tests/fonctionnels/bad** and **Tests/fonctionnels/good**. This way the number of functional tests can be increased just by adding the new test script in the right directory, the system will automatically consider the new test inserted. Unit Tests use **CUnit library**, so that if you want to add tests, you need to modify **Tests/unitaires/test_cunit.c** file.
