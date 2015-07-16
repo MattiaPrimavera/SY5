@@ -169,7 +169,6 @@ Message* bytesToStruct(unsigned char* arrayBytes){
 	int tailleString = 0;
 	unsigned char* ptr2 = ptr;
 	while(*ptr2 != '\0'){
-		//printf("%c_", *ptr2);
 		tailleString++;
 		ptr2++;
 	}
@@ -182,7 +181,6 @@ Message* bytesToStruct(unsigned char* arrayBytes){
 	ptr2++; //on se met sur le premier caractere de ref_abs
 	ptr = ptr2;
 	while(*ptr != '\0'){
-		//printf("%c_", *ptr);
 		tailleString++;
 		ptr++;
 	}
@@ -194,7 +192,6 @@ Message* bytesToStruct(unsigned char* arrayBytes){
 	ptr++;
 	ptr2 = ptr;
 	while(*ptr2 != '\0'){
-		//printf("%c_", *ptr);
 		tailleString++;
 		ptr2++;
 	}
@@ -264,7 +261,6 @@ char** chargeListeFichiers(char* fichierConfig){
 
 	int i;
 	char* precedent = buffer-1;
-	//printf("buffer --> %s\n", buffer);
 	char* tmp = malloc(20*sizeof(char));
     for (i=0; i<lu; i++){
     	if (buffer[i] == '\n'){
@@ -272,7 +268,6 @@ char** chargeListeFichiers(char* fichierConfig){
     		tmp[(int)(&buffer[i]-precedent)-1] = '\0';
     		listeFichiers[indiceFichiers] = malloc((strlen(tmp)+1)*sizeof(char));
     		strcpy(listeFichiers[indiceFichiers], tmp);
-    //		printf("%s\n", tmp);
     	   	indiceFichiers++;
     	   	precedent = &buffer[i];
     	   	fin = &buffer[i]+1;
@@ -282,7 +277,6 @@ char** chargeListeFichiers(char* fichierConfig){
 	strncpy(tmp, fin, (int)(&buffer[lu]-fin+1));
 	listeFichiers[indiceFichiers] = malloc((strlen(tmp)+1)*sizeof(char));
 	strcpy(listeFichiers[indiceFichiers], tmp);
-	//printf("%s\n", tmp);
 	close(fichier);
 	return listeFichiers;
 }

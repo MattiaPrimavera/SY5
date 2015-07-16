@@ -11,6 +11,7 @@
 #include "../Headers/List.h"
 #include "../Headers/Outils.h"
 #include "../Headers/fifo.h"
+
 /*usage: server*/
 int main(int argc, char** argv){
 
@@ -120,13 +121,11 @@ int main(int argc, char** argv){
 			int i;
 			for(i=0;i<nombreImprimante;i++){
 				if(listeImprimantes[i]->listeMessages->size > 0){
-					//printf("c'e un message\n");
 					if(envoieFichier(getFirst(listeImprimantes[i]->listeMessages), descripteursImprimantes[i]) == -1){
-						printf("Impossibile inviare file...\n");
+						printf("Erreur: Envoie fichier impossible...\n");
 						continue;
 					}
 					else{
-						//printf("Fichier inviato con successo!!!!!!!!!!!!!!!\n");
 						extract(listeImprimantes[i]->listeMessages);
 					}
 				}else
@@ -178,36 +177,34 @@ int main(int argc, char** argv){
 					printf("UID = %d; GID = %d; ID = %d; FIC = \"%s\"\n", message->uid, message->gid, message->id_impression, message->ref_abs);
 
 					memset(buffer, '\0', 200);	
-					for(i=0;i<nombreImprimante;i++){
-						printf("size(%d) -> %d) ",listeImprimantes[i]->listeMessages->size ,i+1);
-						printList(listeImprimantes[i]->listeMessages);
-					}
+					//for(i=0;i<nombreImprimante;i++){
+					//	printf("size(%d) -> %d) ",listeImprimantes[i]->listeMessages->size ,i+1);
+					//	printList(listeImprimantes[i]->listeMessages);
+					//}
 
 					break;
 				case 'a':
-					printf("Siamo nel caso a\n");
 					boleano = FALSE;
 					Message* toSend;
 					for(i=0;i<nombreImprimante;i++){
 						if((toSend = findMex(listeImprimantes[i]->listeMessages, message->id_impression)) != NULL){
-							printf("messaggio trovato;;;;;;\n");
 							toSend->type = 'a';
 							printMex(toSend);
 							send(toSend, desc_client);
 							boleano = TRUE;
 							if(extractMex(listeImprimantes[i]->listeMessages, message->id_impression) == -1)
-								printf("estrazione fallita!\n");
+								printf("Erreur extraction Message!\n");
 						}
 					}
 					if(!boleano){
-						printf("rinvio messaggio non trovato!\n");
+						printf("Le message n'a pas ete' trouve'!\n");
 						send(message, desc_client);
 					}
 
-					for(i=0;i<nombreImprimante;i++){
-						printf("size(%d) -> %d) ",listeImprimantes[i]->listeMessages->size,i+1);	
-						printList(listeImprimantes[i]->listeMessages);
-					}
+					//for(i=0;i<nombreImprimante;i++){
+					//	printf("size(%d) -> %d) ",listeImprimantes[i]->listeMessages->size,i+1);	
+					//	printList(listeImprimantes[i]->listeMessages);
+					//}
 					break;	
 			}
 		}

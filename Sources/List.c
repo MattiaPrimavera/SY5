@@ -41,15 +41,13 @@ Message* findMex(List* list, int idImpression){
 void printList(List* list){
 	int i;
 	if(list->head == NULL){
-		printf("LISTE VIDEEEEEEEEEE\n");
+		printf("LISTE VIDE\n");
 		return;
 	}
 	Noeud* tmp = list->head;
 	for(i=0;i<list->size;i++){
-		printf("%d -> ", tmp->mex->id_impression);
 		tmp = tmp->suivant;
 	}
-	printf("FIN_LISTE\n");
 }
 
 int extractMex(List* list, int idImpression){
@@ -58,7 +56,6 @@ int extractMex(List* list, int idImpression){
 	Noeud* precedent;
 	if(result == NULL) return -1; //si le message n'est pas dans la liste NULL
 	if(tmp->mex->id_impression == idImpression){ //cas tete
-		printf("caso testa della lista\n");
 		list->head = tmp->suivant;
 		list->size--;
 		return 0;

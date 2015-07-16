@@ -55,10 +55,6 @@ int main(int argc, char *argv[]){
     			}
    			ecrit = write(tubeSortie, buf, lu);
 
-   			//printf("%s\n <<< lu ...\n", buf);
-    		//printf("\n%d <-- caracteres lu\n", lu);
-   			//printf("%d <-- endOfFile\n", endOfFile(buf, 10));
-
     	if (lu == -1 || ecrit == -1){
           perror("write"); close(tubeEntree); close(tubeSortie); exit(EXIT_FAILURE);
         }		

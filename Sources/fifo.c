@@ -11,14 +11,6 @@
 #include <strings.h>
 #include <string.h>
 
-/*int main(int argc, char** argv){
-	Imprimante** listeImprimantes = chargeImprimantes(argv[1]);
-	int i;
-	for(i=0;i<3;i++){
-		printf("%s FF %s\n", listeImprimantes[i]->nom, listeImprimantes[i]->tube);
-	}
-	return 0;
-}*/
 int send(Message* mex, int fd){
 	unsigned char* bytesArray = structToBytes(mex);
 	if(write(fd, bytesArray, mex->lng + sizeof(unsigned int)) == -1){
@@ -53,7 +45,6 @@ Imprimante** chargeImprimantes(char* fichierConfig){
 	lu = read(fichier, buffer, sizeof(buffer));
 	if(lu <= 0) return NULL;
 	token = strtok(buffer, "\n");
-	//printf("buffer ->\n---->%s\n", buffer);
 	/* walk through other tokens */
 	while(token != NULL){
 		if(nombreImprimante-1 == i){
@@ -64,7 +55,6 @@ Imprimante** chargeImprimantes(char* fichierConfig){
 		else 
 			listeImprimantes[i] = extractImprimante(token);
 		
-		//printf( "--> %s\n", token);
     	token = strtok(NULL, "\n");
     	i++;
 	}
@@ -81,7 +71,6 @@ Imprimante* extractImprimante(char* toSplit){
 			strncpy(impr->nom, toSplit, i);
 			impr->tube = malloc((strlen(toSplit)-i-1)*sizeof(char));
 			strncpy(impr->tube, toSplit+i+1, (strlen(toSplit)-i-1));
-		//	printf("modifica\n");
 			impr->listeMessages = malloc(sizeof(List));
 			impr->listeMessages->head = NULL;
 			impr->listeMessages->size = 0;
@@ -112,7 +101,6 @@ int envoieFichier(Message* mex, int tubeImprimante){
 	//on parcour le fichier en envoyant la totalite'
 	while(i < status.st_size){
     	rc = read(fichier_lire, buf, BUF);
-    	//printf("%d caracteres lus du fichier : %s\n", rc, mex->ref_abs);
     	if(rc < 0){
       		perror("read");
       		return -1;
@@ -121,8 +109,6 @@ int envoieFichier(Message* mex, int tubeImprimante){
       		break;
    		else{//on a lu quelque chose, on l'envoie
    			wc = write(tubeImprimante, buf, rc);
-   			//printf("%d <-- descrittore tube", tubeImprimante);
-   			//printf("scrittura caratteri terminazione\n");
     		if(wc < 0){
       			perror("write");
       			return -1;

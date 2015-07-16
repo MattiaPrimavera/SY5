@@ -111,7 +111,6 @@ int main(int argc, char** argv){
 	}
 
 	char* variable = getenv("IMP_PATH");
-	printf("IMP_PATH trovata: %s\n", variable);
 	desc_requete = open(variable, O_WRONLY);
 	if(desc_requete == -1){
 		fprintf(stderr, "error: ouverture des tubes impossible (IMP_PATH not set)	\n"); exit(2);

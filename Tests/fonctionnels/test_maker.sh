@@ -1,13 +1,6 @@
 #!/bin/bash
 
-#make -s cleanall -f ../../../makefile -C ../../../
-#res_grep=$(ls | grep tube | wc -l)
 
-#if [ "$res_grep" -ne "0" ]; then 
-#	make -s clean -f makefile -C ../../../
-#fi
-
-#make -s -f ../../../makefile -C ../../../
 chmod -R +rwx Tests/fonctionnels/tests/ 
 
 echo "-------------------------------------------------------------"
