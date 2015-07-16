@@ -41,3 +41,11 @@ The Client sends a printing requests to the Server and receives an ID in respons
 The client can still stop a file from printing by sending a request with "-A" option, if the job hasn't been treated by the printer yet.
 
 The Server-Client and Server-Printers communciation take place through "Tubes", but it could be easily replace with network function to make this a distributed system.
+
+## Tests 
+
+Functional and Unit Tests have been written to verify if the system functionalities correctly work. You can easily start the tests with the following command:
+
+	sudo ./test.sh
+
+The script will launch both functional and unity tests. The first ones are obtained by executing a series of .sh scripts contained in "Tests/fonctionnels/bad" and "Tests/fonctionnels/good". This way the number of functional tests can be increased just by adding a script file in the good directory, the system will automatically consider the new test inserted. Unit Tests uses the CUnit lib, so that if you want to add tests, you need to modify "Tests/unitaires/test_cunit.c" file.
