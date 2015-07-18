@@ -1,4 +1,4 @@
-# SY5 - PROJET SYSTEMES
+# SY5 - PROJET SYSTÈMES
 
 A Simulation of a printers System.
 
