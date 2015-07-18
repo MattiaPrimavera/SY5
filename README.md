@@ -8,7 +8,7 @@ A Simulation of a printers System.
 
 ## To Execute
 
-To start running the printers simulators you need to change directory to `Objects`, the one containing the executable files, than execute the following command, which will read inside the file `printers_list` in the project directory, where each line is of the format `printer_name printer_tube\n` 
+To start running the printers simulators you need to change directory to `Objects`, the one containing the executable files, than execute the following command, which will read inside the file `printers_list` in the project directory, where each line is of the format `printer_name printer_tube\n`
 
 	./init_simulateurs -c printers_list
 
@@ -33,7 +33,7 @@ To print all the files specified in `files_list` (a file in which each line is a
 
     ./mpr -P printer_name file_to_print client_tube -M file_list
 
-## Synopsis 
+## Synopsis
 
 The project is a Simulation of a System where clients can ask to print a file through a specific printer. The central Server keeps listening for incoming printing requests and distributes them to the right printer, which add the new file to print in a queue.  
 
@@ -42,7 +42,7 @@ The client can still stop a file from printing by sending a request with "-A" op
 
 The Server-Client and Server-Printers communication takes place through **pipes**, but it could be easily replaced by real network communication to make this a distributed system.
 
-## Tests 
+## Tests
 
 Functional and Unit Tests have been written to verify if the system functionnalities correctly work. You can easily start the tests with the following command:
 
