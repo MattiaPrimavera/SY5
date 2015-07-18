@@ -38,7 +38,7 @@ To print all the files specified in `files_list` (a file in which each line is a
 The project is a Simulation of a System where clients can ask to print a file through a specific printer. The central Server keeps listening for incoming printing requests and distributes them to the right printer, which add the new file to print in a queue.  
 
 The Client sends a printing request to the Server and receives an ID in response, then waits for the Job to be done by the printer.
-The client can still stop a file from printing by sending a request with "-A" option, if the job hasn't been treated by the printer yet.
+The client can still stop a file from printing by sending a request with `-A` option, if the job hasn't been treated by the printer yet.
 
 The Server-Client and Server-Printers communication takes place through **pipes**, but it could be easily replaced by real network communication to make this a distributed system.
 
