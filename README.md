@@ -4,7 +4,7 @@ A Simulation of a printers System.
 
 ## Compilation
 
-    make
+	make
 
 ## To Execute
 
@@ -23,15 +23,15 @@ To send a simple printing request, execute the client with the "-P" option:
 
 To cancel a printing requests:
 
-    ./mpr -P printer_name file_to_print tube_client -A printing_id
+	./mpr -P printer_name file_to_print tube_client -A printing_id
 
 To send N printing requests for the file `file_to_print`:
 
-    ./mpr -P printer_name file_to_print client_tube -N number_of_copies
+	./mpr -P printer_name file_to_print client_tube -N number_of_copies
 
 To print all the files specified in `files_list` (a file in which each line is a path to the file to print):
 
-    ./mpr -P printer_name file_to_print client_tube -M file_list
+	./mpr -P printer_name file_to_print client_tube -M file_list
 
 ## Synopsis
 
