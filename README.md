@@ -13,7 +13,7 @@ To start running the printers simulators you need to change directory to `Object
 	./init_simulateurs -c printers_list
 
 The last command will execute as many printers as is the number of lines in the configuration file.
-To start the Server you need to specify through which **pipe** it will wait for incoming requests and how to communicate with printers (-c option):
+To start the Server you need to specify through which **pipe** it will wait for incoming requests and how to communicate with printers (`-c` option):
 
 	./print_demon -t server_tube -c printers_list
 
