@@ -17,7 +17,7 @@ To start the Server you need to specify through which **pipe** it will wait for 
 
 	./print_demon -t server_tube -c printers_list
 
-To send a simple printing request, execute the client with the "-P" option:
+To send a simple printing request, execute the client with the `-P` option:
 
 	./mpr -P printer_name file_to_print client_tube
 
