@@ -1,10 +1,8 @@
 #!/bin/bash
-make -s   
+make -s
 
 #starting printers simulators 
 ./Objects/init_simulateurs -c fichierConfiguration &> /dev/null &
 
-#starting server 
+#starting server
 ./Objects/print_demon -t Objects/tubeServeur -c fichierConfiguration &> /dev/null &
-
-

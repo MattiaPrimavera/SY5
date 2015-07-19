@@ -3,9 +3,9 @@
 #nettoyage fichiers temp et processus
 res_grep=$(ls Objects | grep tube | wc -l)
 
-if [ "$res_grep" -ne "0" ]; then 
+if [ "$res_grep" -ne "0" ]; then
 	make -s clean
-fi 
+fi
 
-killall sim_impr &> /dev/null 
-killall print_demon &> /dev/null 
+killall sim_impr &> /dev/null
+killall print_demon &> /dev/null

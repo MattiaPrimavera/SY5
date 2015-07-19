@@ -3,9 +3,9 @@ if [ -n $IMP_PATH ]; then
 	unset IMP_PATH
 fi
 
-./Tests/fonctionnels/tests/start_system.sh #starting printing system 
+./Tests/fonctionnels/tests/start_system.sh #starting printing system
 
-#trying to send a printing request with IMP_PATH variable unset 
+#trying to send a printing request with IMP_PATH variable unset
 imprimante=$(cat "fichierConfiguration" | head -n 1 | cut -f 1 -d ' ')
 echo "ciao" > Objects/fic_test_1
 

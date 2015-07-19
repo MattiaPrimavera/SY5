@@ -13,9 +13,7 @@ cat Objects/res_client | grep "error: fichier non regulier" &> /dev/null
 
 if [ "$?" -eq "0" ]; then
 	exit 1
-fi 
+fi
 
 rm Objects/res_client
 rmdir Objects/dir_test
-
-

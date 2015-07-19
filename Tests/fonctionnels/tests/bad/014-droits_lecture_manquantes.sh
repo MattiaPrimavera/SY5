@@ -9,7 +9,7 @@ chmod 000 Objects/new_fic.txt
 
 ./Tests/fonctionnels/tests/start_system.sh
 ./Objects/mpr -P francino Objects/new_fic.txt Objects/tubeClient &> Objects/res_client
- 
+
 cat Objects/res_client | grep "error: pas de droits sur le fichier demande'" &> /dev/null
 
 if [ "$?" -eq "0" ];
@@ -20,4 +20,3 @@ fi
 chmod 777 Objects/new_fic.txt
 rm Objects/new_fic.txt
 rm Objects/res_client
-

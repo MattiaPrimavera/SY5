@@ -13,7 +13,6 @@ cat Objects/res_client | grep "Usage" &> /dev/null
 
 if [ "$?" -eq "0" ]; then
 	exit 1
-fi 
+fi
 
 rm Objects/res_client Objects/toPrint
-
