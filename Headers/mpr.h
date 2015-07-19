@@ -1,4 +1,4 @@
-void usage(){
-	printf("Utilisation:\n./mpr -P imprimante referenceFichier\n");
+void usage()
+{
+    printf("Utilisation:\n./mpr -P imprimante referenceFichier\n");
 }
-

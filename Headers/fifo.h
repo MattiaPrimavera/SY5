@@ -11,17 +11,17 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-struct InfoFile{
-	int curseur;
-	int size;
+struct InfoFile {
+    int curseur;
+    int size;
 };
 typedef struct InfoFile InfoFile;
 
-struct Imprimante{
-	char* nom;
-	char* tube;
-	List* listeMessages;
-	int nombreMessages;
+struct Imprimante {
+    char* nom;
+    char* tube;
+    List* listeMessages;
+    int nombreMessages;
 };
 typedef struct Imprimante Imprimante;
 
@@ -32,6 +32,3 @@ Imprimante** chargeImprimantes(char* fichierConfig);
 int envoieFichier(Message* mex, int tubeImprimante);
 
 #endif
-
-
-	

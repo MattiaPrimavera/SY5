@@ -16,15 +16,15 @@
 #define TRUE 1
 #define FALSE 0
 
-struct Message{
-	unsigned int lng;
-	char type;
-	uid_t uid;
-	gid_t gid;
-	int id_impression;
-	char* imprimante;
-	char* ref_abs;
-	char* tube_client;
+struct Message {
+    unsigned int lng;
+    char type;
+    uid_t uid;
+    gid_t gid;
+    int id_impression;
+    char* imprimante;
+    char* ref_abs;
+    char* tube_client;
 };
 typedef struct Message Message;
 
@@ -46,8 +46,5 @@ void printMex(Message* mex);
 unsigned char* structToBytes(Message* msg);
 Message* bytesToStruct(unsigned char* arrayBytes);
 int endOfFile(char* buffer, int taille);
-
-
-
 
 #endif

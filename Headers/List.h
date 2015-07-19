@@ -4,15 +4,15 @@
 
 
 typedef struct Noeud Noeud;
-struct Noeud{
-	Noeud* suivant;
-	Message* mex;
+struct Noeud {
+    Noeud* suivant;
+    Message* mex;
 };
 
 typedef struct List List;
-struct List{
-	Noeud* head;
-	int size;
+struct List {
+    Noeud* head;
+    int size;
 };
 
 void printList(List* list);
